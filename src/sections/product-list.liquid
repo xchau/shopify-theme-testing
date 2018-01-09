@@ -1,0 +1,53 @@
+<div id="textsection">
+  {%- assign collection = collections[section.settings.collection] -%}
+  <div class="simpletext">
+    {% if collection.title %}
+      <h1> {{ collection.title }} </h1>
+    {% else %}
+      <h1> {{ section.settings.title }} </h1>
+    {% endif %}
+  </div>
+  <div class="storefront__products-grid">
+    {%- if collection.all_products_count > 0 -%}
+    {%- for product in collection.all_products -%}
+    <div class="storefront__product-container">
+      {{}}
+    </div>
+    {%- endfor -%}
+    {%- endif -%}
+  </div>
+  {{ collection | json }}
+  {{ collection.all_products_count }}
+  {{ collection.all_products | json }}
+</div>
+
+{% schema %}
+  {
+    "name": "Product List",
+    "settings": [
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Heading",
+        "default": "Default Section Title"
+      },
+      {
+        "id": "collection",
+        "type": "collection",
+        "label": "All Products"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Popular Experiences",
+        "category": "Collection"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

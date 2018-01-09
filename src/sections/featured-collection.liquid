@@ -1,14 +1,13 @@
-{% if section.settings.title != blank %}
+<!-- {% if section.settings.title != blank %}
   <h2>{{ section.settings.title | escape }}</h2>
 {% endif %}
-
 {%- assign collection = collections[section.settings.collection] -%}
 
 {% for product in collection.products limit: 6 %}
   <a href="{{ product.url | within: collection }}">
 
     {% if product.featured_image != blank %}
-      {{ product.featured_image.src | img_url: '480x480' | img_tag: product.title }}
+      {{ product.featured_image.src | img_url: '240x240' | img_tag: product.title }}
     {% endif %}
 
     <p>{{ product.title }}</p>
@@ -76,4 +75,4 @@
     ]
   }
 
-{% endschema %}
+{% endschema %} -->
