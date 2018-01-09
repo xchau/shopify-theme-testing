@@ -6,26 +6,23 @@
   {% endif %}
 </style>
 <div data-section-id="{{ section.id }}" data-section-type="header-section">
-  <p>
-    {{ section.id }}
-  </p>
   <header role="banner">
     {% if template.name == 'index' %}
       <h1 itemscope itemtype="http://schema.org/Organization">
     {% else %}
       <div class="h1" itemscope itemtype="http://schema.org/Organization">
     {% endif %}
-        <a href="/" itemprop="url" class="site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">
-          {% if section.settings.logo != blank %}
-            {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
-            <img src="{{ section.settings.logo | img_url: image_size }}"
-                 srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
-                 alt="{{ section.settings.logo.alt | default: shop.name }}"
-                 itemprop="logo">
-          {% else %}
-            {{ shop.name }}
-          {% endif %}
-        </a>
+    {% if section.settings.logo != blank %}
+      {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
+      <a href="/" itemprop="url" class="site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">
+        <img src="{{ section.settings.logo | img_url: image_size }}"
+           srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+           alt="{{ section.settings.logo.alt | default: shop.name }}"
+           itemprop="logo">
+      </a>
+    {% else %}
+      {{ shop.name }}
+    {% endif %}
     {% if template.name == 'index' %}
       </h1>
     {% else %}
@@ -77,10 +74,10 @@
         <span class="icon-fallback-text">{{ 'general.search.submit' | t }}</span>
       </button>
     </form>
-
+    {{ section.settings | json }}
   </header>
 
-  <nav role="navigation">
+  <!-- <nav role="navigation">
     <ul class="site-nav">
       {% for link in linklists[section.settings.main_linklist].links %}
         {%- assign child_list_handle = link.title | handleize -%}
@@ -105,7 +102,7 @@
         {% endif %}
       {% endfor %}
     </ul>
-  </nav>
+  </nav> -->
 </div>
 
 {% schema %}
