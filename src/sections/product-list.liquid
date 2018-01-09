@@ -12,7 +12,7 @@
       {%- for product in collection.all_products -%}
       <div class="storefront__product-container">
         {{ product.title }}
-        <a href="{{ product.url }}">Link to Product</a>
+        <a href="{{ product.url }}">Visit Product</a>
         <div>
           <span>Metafields:</span>
           <span>{{ product.metafields.experiences | json }}</span>

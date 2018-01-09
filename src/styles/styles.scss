@@ -1,0 +1,22 @@
+/*================ STICKY FOOTER ================*/
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.storefront__main-container {
+  flex: 1 0 auto;
+}
+
+a {
+  color: #505DBF;
+  text-decoration: none;
+
+  &:active {
+    color: #505DBF;
+  }
+}

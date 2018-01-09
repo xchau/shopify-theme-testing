@@ -1,4 +1,6 @@
-<footer>
+{{ 'footer.scss.css' | asset_url | stylesheet_tag }}
+
+<footer class="storefront__footer-container">
 
   {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
   <ul>
