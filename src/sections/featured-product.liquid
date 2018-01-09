@@ -1,4 +1,17 @@
 {%- assign product = all_products[section.settings.product] -%}
+<p>
+  PRODUCT TITLE: {{ product.title }}
+</p>
+<div>
+  PRODUCT METAFIELDS: {{ product.metafields.experiences | json }}
+  {% raw %}
+  <pre>
+    <code>
+      {{ product.metafields.experiences | json }}
+    </code>
+  </pre>
+  {% endraw %}
+</div>
 {%- assign current_variant = product.selected_or_first_available_variant -%}
 {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
 

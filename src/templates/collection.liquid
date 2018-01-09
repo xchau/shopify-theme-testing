@@ -24,9 +24,9 @@
     {% endif %}
   </header>
 
-  <div>
+  <div class="grid--uniform">
     {% for product in collection.products %}
-      <div>
+      <div class="grid__item one-quarter">
         {% if product.featured_image != blank %}
           <a href="{{ product.url | within: collection }}">
             {{ product.featured_image.src | img_url: '480x480' | img_tag: product.featured_image.alt }}

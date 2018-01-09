@@ -6,9 +6,6 @@
   {% endif %}
 </style>
 <div data-section-id="{{ section.id }}" data-section-type="header-section">
-  <p>
-    {{ section.id }}
-  </p>
   <header role="banner">
     {% if template.name == 'index' %}
       <h1 itemscope itemtype="http://schema.org/Organization">
@@ -107,7 +104,6 @@
     </ul>
   </nav>
 </div>
-
 {% schema %}
   {
     "name": "Header",
