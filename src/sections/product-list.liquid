@@ -11,6 +11,8 @@
     {%- if collection.all_products_count > 0 -%}
       {%- for product in collection.all_products -%}
       <div class="storefront__product-container">
+        {{ product | json }}
+        {{ product.tags }}
         {{ product.title }}
         <a href="{{ product.url }}">Visit Product</a>
         <div>
