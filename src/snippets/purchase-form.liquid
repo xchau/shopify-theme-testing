@@ -1,0 +1,30 @@
+{{ 'product.scss.css' | asset_url | stylesheet_tag }}
+
+<form class="product__purchase-form-container">
+  <select id="event-variant-select" class="product__purchase-form__select">
+    {% for variant in product_data.variants %}
+      <option value="{{ variant.title }}">{{ variant.title }}</option>
+    {% endfor %}
+  </select>
+  <select id="event-variant-select" class="product__purchase-form__select">
+    {% for variant in product_data.variants %}
+      <option value="{{ variant.title }}">{{ variant.title }}</option>
+    {% endfor %}
+  </select>
+  <select id="event-variant-select" class="product__purchase-form__select">
+    {% for variant in product_data.variants %}
+      <option value="{{ variant.title }}">{{ variant.title }}</option>
+    {% endfor %}
+  </select>
+  <select id="event-variant-select" class="product__purchase-form__select">
+    {% for variant in product_data.variants %}
+      <option value="{{ variant.title }}">{{ variant.title }}</option>
+    {% endfor %}
+  </select>
+  <button id="book-event-button" class="product__book-event-button">
+    Book
+  </button>
+  <div class="product__purchase-form__social-media">
+    {% include 'social-sharing', product_data: product_data %}
+  </div>
+</form>

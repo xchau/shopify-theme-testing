@@ -1,3 +1,5 @@
+{{ 'styles.scss.css' | asset_url | stylesheet_tag }}
+
 <div id="textsection">
   {%- assign collection = collections[section.settings.collection] -%}
   <div class="simpletext">
@@ -7,10 +9,10 @@
       <h1> {{ section.settings.title }} </h1>
     {% endif %}
   </div>
-  <div class="storefront__products-grid">
+  <div class="theme__products-grid">
     {%- if collection.all_products_count > 0 -%}
       {%- for product in collection.all_products -%}
-      <div class="storefront__product-container">
+      <div class="theme__product-container">
         {{ product | json }}
         {{ product.tags }}
         {{ product.title }}
@@ -52,28 +54,3 @@
     ]
   }
 {% endschema %}
-
-{% stylesheet %}
-  .storefront__products-grid {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-  }
-
-  .storefront__product-container {
-    height: 150px;
-    width: 150;
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    padding: 15px;
-    margin: 20px;
-  }
-
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}

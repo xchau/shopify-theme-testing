@@ -1,0 +1,164 @@
+.product__section-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.product__hero-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+/*================ INTRO GRID ================*/
+@mixin title-grid($col1, $col2, $col3, $col4) {
+  display: grid;
+  grid-template-columns: $col1 $col2 $col3 $col4;
+  grid-auto-rows: minmax(2rem, auto);
+  -ms-grid-template-columns: $col1 $col2 $col3 $col4;
+  -ms-grid-auto-rows: minmax(2rem, auto);
+}
+
+@mixin title-grid__title($start, $end) {
+  grid-column: #{$start} / #{$end};
+  grid-row: 1;
+  -ms-grid-column: $start / $end;
+  -ms-grid-row: 1;
+}
+
+@mixin title-grid__non-title($start) {
+  grid-column: #{$start} / span 1;
+  -ms-grid-column: $start span 1;
+}
+
+%non-title-styles {
+  // border: 1px solid lightcoral;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  h5, p { margin: 0; }
+}
+
+$title-col-start: 1;
+
+.product__title-grid {
+  @include title-grid(49%, 17%, 17%, 17%);
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.product__title-grid__title {
+  @include title-grid__title($title-col-start, 2);
+  // border: 1px solid black;
+  font-size: 3rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+}
+
+.product__title-grid__location {
+  @include title-grid__non-title($title-col-start + 1);
+  @extend %non-title-styles;
+}
+
+.product__title-grid__duration {
+  @include title-grid__non-title($title-col-start + 2);
+  @extend %non-title-styles;
+}
+
+.product__title-grid__event-type {
+  @include title-grid__non-title($title-col-start + 3);
+  @extend %non-title-styles;
+}
+
+.product__title-grid__text {}
+
+/*================ DETAILS & PURCHASE GRID ================*/
+@mixin details-grid($col1, $col2) {
+  display: grid;
+  grid-template-columns: $col1 $col2;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+  -ms-grid-template-columns: $col1 $col2;
+  -ms-grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+@mixin details-grid-item($col-start, $row-start, $row-span) {
+  grid-column: #{$col-start} / span 1;
+  grid-row: #{$row-start} / span $row-span;
+  -ms-grid-column: #{$col-start} / span 1;
+  -ms-grid-row: #{$row-start} / span $row-span;
+}
+
+%product__details-grid__item {
+  border-top: 1px solid #E6E6E6;
+  line-height: 1.5;
+  margin-left: 20px;
+  padding: 15px 10px;
+}
+
+.product__details-grid {
+  @include details-grid(30%, 70%);
+  width: 100%;
+}
+
+.product__details-grid__purchase-form {
+  @include details-grid-item(1, 1, 3);
+  margin-right: 20px;
+}
+
+// .product__details-grid__social-media-row {
+//   @include details-grid-item(1, 4, 1);
+//   border: 1px dashed lightblue;
+//   border-top: 1px solid #E6E6E6;
+//   margin-right: 20px;
+// }
+
+.product__details-grid__tagline {
+  @include details-grid-item(2, 1, 1);
+  @extend %product__details-grid__item;
+  text-align: center;
+}
+
+.product__details-grid__description {
+  @include details-grid-item(2, 2, 1);
+  @extend %product__details-grid__item;
+}
+
+.product__details-grid__location-description {
+  @include details-grid-item(2, 3, 1);
+  @extend %product__details-grid__item;
+}
+
+.product__details-grid__notes {
+  @include details-grid-item(2, 4, 1);
+  @extend %product__details-grid__item;
+}
+
+.product__details-grid__about-host {
+  @include details-grid-item(2, 5, 1);
+  @extend %product__details-grid__item;
+}
+
+.product_details-grid_header {}
+
+/*================ PURCHASE FORM ================*/
+.product__purchase-form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.product__purchase-form__select {
+  margin-bottom: 20px;
+}
+
+#book-event-button {
+  color: #fff;
+  background: #505DBF;
+  border-radius: 4px;
+  height: 40px;
+  margin-bottom: 25px;
+}
