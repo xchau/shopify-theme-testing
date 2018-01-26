@@ -10,28 +10,17 @@
 
 <div class="header__section-container" data-section-id="{{ section.id }}" data-section-type="header-section">
   <header role="banner">
-    {% if template.name == 'index' %}
-      <h1 itemscope itemtype="http://schema.org/Organization">
-    {% else %}
-      <div class="h1" itemscope itemtype="http://schema.org/Organization">
-    {% endif %}
-    {% if section.settings.logo != blank %}
-      {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
-      <a href="/" itemprop="url" class="site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">
-        <img src="{{ section.settings.logo | img_url: image_size }}"
-           srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
-           alt="{{ section.settings.logo.alt | default: shop.name }}"
-           itemprop="logo">
-      </a>
-    {% else %}
-      {{ shop.name }}
-    {% endif %}
-    {% if template.name == 'index' %}
-      </h1>
-    {% else %}
-      </div>
-    {% endif %}
-
+    <div class="h1" itemscope itemtype="http://schema.org/Organization">
+      {% if section.settings.logo != blank %}
+        {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
+        <a href="/" itemprop="url" class="site-logo{% if section.settings.logo != blank %} site-header__logo-image{% endif %}">
+          <img src="{{ section.settings.logo | img_url: image_size }}"
+             srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+             alt="{{ section.settings.logo.alt | default: shop.name }}"
+             itemprop="logo">
+        </a>
+      {% endif %}
+    </div>
     <a href="/cart">
       {% include 'icon-cart' %}
       {{ 'layout.cart.title' | t }}
@@ -78,33 +67,6 @@
       </button>
     </form>
   </header>
-
-  <!-- <nav role="navigation">
-    <ul class="site-nav">
-      {% for link in linklists[section.settings.main_linklist].links %}
-        {%- assign child_list_handle = link.title | handleize -%}
-        {% if menus[child_list_handle].links != blank %}
-          <li class="site-nav--has-submenu{% if link.active %} site-nav--active{% endif %}">
-            <a href="{{ link.url }}" class="site-nav__link">
-              {{ link.title }}
-              {% include 'icon-arrow-down' %}
-            </a>
-            <ul class="site-nav__submenu">
-              {% for childlink in menus[child_list_handle].links %}
-                <li {% if childlink.active %}class="site-nav--active"{% endif %}>
-                  <a href="{{ childlink.url }}" class="site-nav__link">{{ childlink.title | escape }}</a>
-                </li>
-              {% endfor %}
-            </ul>
-          </li>
-        {% else %}
-          <li {% if link.active %}class="site-nav--active"{% endif %}>
-            <a href="{{ link.url }}" class="site-nav__link">{{ link.title }}</a>
-          </li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  </nav> -->
 </div>
 
 {% schema %}

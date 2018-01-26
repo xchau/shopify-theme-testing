@@ -1,7 +1,7 @@
 {{ 'styles.scss.css' | asset_url | stylesheet_tag }}
-
 <div id="textsection">
-  {%- assign collection = collections[section.settings.collection] -%}
+  {%- assign defaultCollection = "popular-experiences" -%}
+  {%- assign collection = collections[defaultCollection] -%}
   <div class="simpletext">
     {% if collection.title %}
       <h1> {{ collection.title }} </h1>
@@ -9,7 +9,7 @@
       <h1> {{ section.settings.title }} </h1>
     {% endif %}
     <p>
-      Number of products available in "Popular Experiences" collection &ndash;
+      Number of products available in "{{ defaultCollection }}" collection &ndash;
       {{ collection.all_products_count }}
     </p>
   </div>
@@ -29,8 +29,8 @@
       {%- endfor -%}
     {%- endif -%}
   </div>
-  <!-- {{ collection | json }} -->
-  <!-- {{ collection.all_products_count }}
+  <!-- {{ collection | json }}
+  {{ collection.all_products_count }}
   {{ collection.all_products | json }} -->
 </div>
 
@@ -41,20 +41,26 @@
       {
         "id": "title",
         "type": "text",
-        "label": "Heading",
-        "default": "Default Section Title"
+        "label": "Section Type",
+        "default": "Product List"
       },
       {
         "id": "collection",
         "type": "collection",
-        "label": "All Products"
+        "label": "Current Collection"
       }
     ],
     "presets": [
       {
-        "name": "Popular Experiences",
-        "category": "Collection"
+        "name": "Product List",
+        "category": "Product"
       }
     ]
   }
 {% endschema %}
+
+<!-- {
+  "id": "product",
+  "type": "product",
+  "label": "product"
+} -->
