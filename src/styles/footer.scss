@@ -1,7 +1,9 @@
 .footer__section-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 30vh;
+  padding: 20px;
   background: #1A1D57;
   color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }

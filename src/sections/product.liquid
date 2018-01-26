@@ -17,96 +17,108 @@
   <meta itemprop="image" content="{{ featured_image | img_url: '600x600' }}">
   <meta itemprop="description" content="{{ product.description | strip_html | escape }}">
 
-  {% if featured_image != blank %}
-    <div class="product__hero-image">
-      <img src="{{ featured_image | img_url: '480x480' }}" alt="{{ featured_image.alt | escape }}" data-product-featured-image>
-    </div>
-  {% endif %}
-
-  <div class="product__title-grid">
-    <div class="product__title-grid__title">
-      {{ product.title }}
-    </div>
-    <div class="product__title-grid__location">
-      <h5>Location:</h5>
-      <p class="product__title-grid__text">
-        {% raw %} {{ product.metafields.location }} {% endraw %}
-      </p>
-    </div>
-    <div class="product__title-grid__duration">
-      <h5>Duration:</h5>
-      <p class="product__title-grid__text">
-        {% raw %} {{ product.metafields.duration }} {% endraw %}
-      </p>
-    </div>
-    <div class="product__title-grid__event-type">
-      <h5>Event:</h5>
-      <p class="product__title-grid__text">
-        {% raw %} {{ product.metafields.eventType }} {% endraw %}
-      </p>
-    </div>
+  <div class="product__title-container">
+    <h1 class="product__title-container__title">
+      Conquer Mount Storm King
+    </h1>
+    <span class="product__title-container__tagline">
+      The ultimate adventure in Olympic National Park.
+    </span>
   </div>
 
-  <div class="product__details-grid">
-    <div class="product__details-grid__purchase-form">
-      {% include 'purchase-form', product_data: product %}
+  <div class="product__display-grid">
+
+    <div class="product__display-grid__col1">
+      <div class="product__display-grid__infobox">
+        <h3 class="product__display-grid__header">Location:</h3>
+        <span class="product__display-grid__text">
+          <a href="#">Olympic National Park, WA</a>
+          <!-- {% raw %} {{ product.metafields.location }} {% endraw %} -->
+        </span>
+      </div>
+      <div class="product__display-grid__infobox">
+        <h3 class="product__display-grid__header">Duration:</h3>
+        <span class="product__display-grid__text">
+          $200 per person
+          <!-- {% raw %} {{ product.metafields.ticketCost }} {% endraw %} -->
+        </span>
+      </div>
+      <div class="product__display-grid__infobox">
+        <h3 class="product__display-grid__header">Duration:</h3>
+        <span class="product__display-grid__text">
+          4 hours
+          <!-- {% raw %} {{ product.metafields.duration }} {% endraw %} -->
+        </span>
+      </div>
+      <div class="product__display-grid__infobox">
+        <h3 class="product__display-grid__header">Event:</h3>
+        <span class="product__display-grid__text">
+          <a href="#">Hiking</a>
+          <!-- {% raw %} {{ product.metafields.eventType }} {% endraw %} -->
+        </span>
+      </div>
     </div>
 
-    <div class="product__details-grid__tagline">
-      The ultimate adventure in Olympic National Park.
-      {% raw %} {{ product.metafields.summary }} {% endraw %}
+    <div class="product__display-grid__col2">
+      {% if featured_image != blank %}
+        <div class="product__hero-image">
+          <img src="{{ featured_image | img_url: '480x480' }}" alt="{{ featured_image.alt | escape }}" data-product-featured-image>
+        </div>
+      {% endif %}
+      <div class="product__display-grid__detailsbox">
+        <h3 class="product__display-grid__header bottom-spacer-small">
+          What We'll Do
+        </h3>
+        <p class="product__display-grid__text">
+          Leverage agile frameworks to provide a robust synopsis for high level
+          overviews. Iterative approaches to corporate strategy foster collaborative
+          thinking to further the overall value proposition. Organically grow the
+          holistic world view of disruptive innovation via workplace diversity and
+          empowerment.
+        </p>
+      </div>
+      <div class="product__display-grid__detailsbox">
+        <h3 class="product__display-grid__header bottom-spacer-small">
+          Where We'll Be
+        </h3>
+        <p class="product__display-grid__text">
+          Bring to the table win-win survival strategies to ensure proactive
+          domination. At the end of the day, going forward, a new normal that has
+          evolved from generation X is on the runway heading towards a streamlined
+          cloud solution. User generated content in real-time will have multiple
+          touchpoints for offshoring.
+        </p>
+      </div>
+      <div class="product__display-grid__detailsbox">
+        <h3 class="product__display-grid__header bottom-spacer-small">
+          Notes
+        </h3>
+        <p class="product__display-grid__text">
+          Capitalize on low hanging fruit to identify a ballpark value added
+          activity to beta test. Override the digital divide with additional
+          clickthroughs from DevOps. Nanotechnology immersion along the
+          information highway will close the loop on focusing solely on the
+          bottom line.
+        </p>
+      </div>
+      <div class="product__display-grid__detailsbox">
+        <h3 class="product__display-grid__header bottom-spacer-small">
+          The Host
+        </h3>
+        <div class="product__display-grid__hostbox">
+          <div class="product__display-grid__host-image">
+
+          </div>
+          <p class="product__display-grid__text">
+            Collaboratively administrate empowered markets via plug-and-play
+            networks. Dynamically procrastinate B2C users after installed base
+            benefits. Dramatically visualize customer directed convergence without
+            revolutionary ROI.
+          </p>
+        </div>
+      </div>
     </div>
-    <div class="product__details-grid__description">
-      <h3 class="product__details-grid_header">
-        What We'll Do
-      </h3>
-      <p class="product__details-grid__text">
-        Leverage agile frameworks to provide a robust synopsis for high level
-        overviews. Iterative approaches to corporate strategy foster collaborative
-        thinking to further the overall value proposition. Organically grow the
-        holistic world view of disruptive innovation via workplace diversity and
-        empowerment.
-      </p>
-      {% raw %} {{ product.metafields.description }} {% endraw %}
-    </div>
-    <div class="product__details-grid__location-description">
-      <h3 class="product__details-grid_header">
-        Where We'll Be
-      </h3>
-      <p class="product__details-grid__text">
-        Bring to the table win-win survival strategies to ensure proactive
-        domination. At the end of the day, going forward, a new normal that has
-        evolved from generation X is on the runway heading towards a streamlined
-        cloud solution. User generated content in real-time will have multiple
-        touchpoints for offshoring.
-      </p>
-      {% raw %} {{ product.metafields.locationDescription }} {% endraw %}
-    </div>
-    <div class="product__details-grid__notes">
-      <h3 class="product__details-grid_header">
-        Notes
-      </h3>
-      <p class="product__details-grid__text">
-        Capitalize on low hanging fruit to identify a ballpark value added
-        activity to beta test. Override the digital divide with additional
-        clickthroughs from DevOps. Nanotechnology immersion along the
-        information highway will close the loop on focusing solely on the
-        bottom line.
-      </p>
-      {% raw %} {{ product.metafields.notes }} {% endraw %}
-    </div>
-    <div class="product__details-grid__about-host">
-      <h3 class="product__details-grid_header">
-        The Host
-      </h3>
-      <p class="product__details-grid__text">
-        Collaboratively administrate empowered markets via plug-and-play
-        networks. Dynamically procrastinate B2C users after installed base
-        benefits. Dramatically visualize customer directed convergence without
-        revolutionary ROI.
-      </p>
-      {% raw %} {{ product.metafields.hostDescription }} {% endraw %}
-    </div>
+
   </div>
 
   {% javascript %}

@@ -8,6 +8,7 @@
 
 /*================ STICKY FOOTER ================*/
 html, body {
+  font-family: sans-serif;
   height: 100%;
 }
 
@@ -18,7 +19,7 @@ body {
 
 .theme__main-container {
   flex: 1 0 auto;
-  padding: 2rem 12%;
+  padding: 0 4%;
 }
 
 a {
