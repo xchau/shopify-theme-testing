@@ -37,28 +37,32 @@
     {{ 'styles.scss.css' | asset_url | stylesheet_tag }}
     {{ 'header.scss.css' | asset_url | stylesheet_tag }}
     {{ 'footer.scss.css' | asset_url | stylesheet_tag }}
-
     {{ 'see-dates.scss.css' | asset_url | stylesheet_tag }}
 
-    <script>
-      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
-      window.theme = {
-        strings: {
-          addToCart: {{ 'products.product.add_to_cart' | t | json }},
-          soldOut: {{ 'products.product.sold_out' | t | json }},
-          unavailable: {{ 'products.product.unavailable' | t | json }}
-        },
-        moneyFormat: {{ shop.money_format | json }}
-      };
-    </script>
     <script src="https://ad12197c.ngrok.io/embedded.js"></script>
     <script>
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+
       launchExperiences({
         baseUrl: 'https://ad12197c.ngrok.io',
         productId: {{ product.id }}
       })
       .then(res => {
-        console.log("OUR MONGO EVENT:", res);
+        window.theme = {
+          strings: {
+            addToCart: {{ 'products.product.add_to_cart' | t | json }},
+            soldOut: {{ 'products.product.sold_out' | t | json }},
+            unavailable: {{ 'products.product.unavailable' | t | json }},
+            event: JSON.stringify(res.event),
+          },
+          moneyFormat: {{ shop.money_format | json }},
+          experiences: res,
+        };
+
+        console.log(window.theme);
+      })
+      .catch(err => {
+        console.error(err);
       });
     </script>
 
@@ -79,7 +83,7 @@
   <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
 
     <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
-
+    {{ theme | json }}
     {% section 'header' %}
 
     <main class="theme__main-container" role="main" id="MainContent">

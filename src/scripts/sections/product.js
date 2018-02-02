@@ -1,13 +1,27 @@
 /**
  * Product Template Script
  * ------------------------------------------------------------------------------
- * A file that contains scripts highly couple code to the Product template.
+ * A file that contains scripts highly coupled code to the Product template.
  *
    * @namespace product
  */
 
-theme.Product = (function() {
+/*=============== CUSTOM EXPERIENCES CODE ================*/
+window.onload = function() {
+  if (window.theme && window.theme.experiences) {
+    console.log("IN PRODUCT SCRIPT, EXPERIENCES:", window.theme.experiences);
+  }
 
+  const heroBox = $('div.product__hero-image');
+
+  $('div.product__hero-image').text(JSON.stringify(window.theme.experiences));
+}
+
+
+
+/*========================================================*/
+
+theme.Product = (function() {
   var selectors = {
     addToCart: '[data-add-to-cart]',
     addToCartText: '[data-add-to-cart-text]',
