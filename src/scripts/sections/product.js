@@ -17,8 +17,6 @@ window.onload = function() {
   $('div.product__hero-image').text(JSON.stringify(window.theme.experiences));
 }
 
-
-
 /*========================================================*/
 
 theme.Product = (function() {
