@@ -13,8 +13,11 @@ window.onload = function() {
   }
 
   const heroBox = $('div.product__hero-image');
+  const jsonSpan = $('<span>').text(JSON.stringify(window.theme.experiences));
 
-  $('div.product__hero-image').text(JSON.stringify(window.theme.experiences));
+  heroBox.append(jsonSpan);
+
+  $('#date-picker').datepicker();
 }
 
 /*========================================================*/
