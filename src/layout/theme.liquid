@@ -34,35 +34,36 @@
     {% include 'social-meta-tags' %}
 
     {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
-    {{ 'styles.scss.css' | asset_url | stylesheet_tag }}
-    {{ 'header.scss.css' | asset_url | stylesheet_tag }}
-    {{ 'footer.scss.css' | asset_url | stylesheet_tag }}
-    {{ 'see-dates.scss.css' | asset_url | stylesheet_tag }}
+    {{ 'jquery-ui-override.scss.css' | asset_url | stylesheet_tag }}
 
     <script src="https://ad12197c.ngrok.io/embedded.js"></script>
     <script>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
 
-      launchExperiences({
-        baseUrl: 'https://ad12197c.ngrok.io',
-        productId: {{ product.id }}
-      })
-      .then(res => {
+      // launchExperiences({
+      //   baseUrl: 'https://ad12197c.ngrok.io',
+      //   productId: {{ product.id }}
+      // })
+      // .then(res => {
         window.theme = {
           strings: {
             addToCart: {{ 'products.product.add_to_cart' | t | json }},
             soldOut: {{ 'products.product.sold_out' | t | json }},
             unavailable: {{ 'products.product.unavailable' | t | json }},
-            event: JSON.stringify(res.event),
+            // event: JSON.stringify(res.event),
           },
           moneyFormat: {{ shop.money_format | json }},
-          experiences: res,
+          // experiences: res,
         };
 
-        console.log(window.theme);
-      })
-      .catch(err => {
-        console.error(err);
+      //   console.log(window.theme);
+      // })
+      // .catch(err => {
+      //   console.error(err);
+      // });
+      launchExperiences({
+        baseUrl: 'https://ad12197c.ngrok.io',
+        productId: {{ product.id }}
       });
     </script>
 
