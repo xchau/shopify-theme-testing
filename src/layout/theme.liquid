@@ -40,27 +40,15 @@
     <script>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
 
-      // launchExperiences({
-      //   baseUrl: 'https://ad12197c.ngrok.io',
-      //   productId: {{ product.id }}
-      // })
-      // .then(res => {
-        window.theme = {
-          strings: {
-            addToCart: {{ 'products.product.add_to_cart' | t | json }},
-            soldOut: {{ 'products.product.sold_out' | t | json }},
-            unavailable: {{ 'products.product.unavailable' | t | json }},
-            // event: JSON.stringify(res.event),
-          },
-          moneyFormat: {{ shop.money_format | json }},
-          // experiences: res,
-        };
+      window.theme = {
+        strings: {
+          addToCart: {{ 'products.product.add_to_cart' | t | json }},
+          soldOut: {{ 'products.product.sold_out' | t | json }},
+          unavailable: {{ 'products.product.unavailable' | t | json }},
+        },
+        moneyFormat: {{ shop.money_format | json }},
+      };
 
-      //   console.log(window.theme);
-      // })
-      // .catch(err => {
-      //   console.error(err);
-      // });
       launchExperiences({
         baseUrl: 'https://ad12197c.ngrok.io',
         productId: {{ product.id }}

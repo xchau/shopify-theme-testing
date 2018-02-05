@@ -8,21 +8,7 @@
 
 /*=============== CUSTOM EXPERIENCES CODE ================*/
 window.onload = function() {
-  // if (window.theme && window.theme.experiences) {
-  //   console.log("IN PRODUCT SCRIPT, EXPERIENCES:", window.theme.experiences);
-  // }
-
-  // const heroBox = $('div.product__hero-image');
-  // const jsonSpan = $('<span>').text(JSON.stringify(window.theme.experiences));
-
-  // heroBox.append(jsonSpan);
-  //
-  // const event = window.theme.experiences.event;
-  // const datepicker = $('#date-picker');
-  // 
-  // datepicker.datepicker();
-
-  // const active =
+  
 }
 
 /*========================================================*/
