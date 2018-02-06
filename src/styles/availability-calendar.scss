@@ -1,3 +1,9 @@
+/*=============== VARIABLES ================*/
+$font-size: 0.9rem;
+$font-bold: 600;
+$li-height: 70px;
+$li-width: 40px;
+
 /*================ AVAILABILITY CALENDAR STYLES ================*/
 .availability-calendar__container {
   font-family: Avenir, sans-serif;
@@ -9,7 +15,7 @@
   display: flex;
   justify-content: space-around;
   margin: 10px 0 0 0;
-  padding: 0 15px;
+  padding: 0 20px;
   list-style-type: none;
 
   li {
@@ -18,13 +24,18 @@
     flex-direction: column;
     justify-content: space-around;
     position: relative;
-    min-height: 70px;
-    min-width: 40px;
+    min-height: $li-height;
+    min-width: $li-width;
   }
 
   li > span {
     position: absolute;
-    top: -10px;
+    top: -4px;
+  }
+
+  span, label {
+    font-size: ($font-size - 0.1);
+    font-weight: $font-bold;
   }
 
   label {
@@ -32,7 +43,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    min-height: 30px;
+    min-height: ($li-height / 2);
     width: 100%;
     z-index: 90;
   }
@@ -64,6 +75,10 @@
 .availability-calendar__header {
   display: flex;
   justify-content: space-between;
+
+  .availability-calendar__month-label {
+    font-weight: 600;
+  }
 
   .availability-calendar__arrow {
     background: #fff;
