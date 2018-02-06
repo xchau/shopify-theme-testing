@@ -34,9 +34,7 @@
     {% include 'social-meta-tags' %}
 
     {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
-    {{ 'jquery-ui-override.scss.css' | asset_url | stylesheet_tag }}
 
-    <script src="https://ad12197c.ngrok.io/embedded.js"></script>
     <script>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
 
@@ -48,7 +46,9 @@
         },
         moneyFormat: {{ shop.money_format | json }},
       };
-
+    </script>
+    <script src="https://ad12197c.ngrok.io/embedded.js"></script>
+    <script>
       launchExperiences({
         baseUrl: 'https://ad12197c.ngrok.io',
         productId: {{ product.id }}

@@ -1,0 +1,30 @@
+/*================ AVAILABILITY CALENDAR STYLES ================*/
+.availability-calendar__datepicker-container {
+  display: flex;
+  justify-content: space-around;
+  font-size: .9rem;
+  font-family: Avenir, sans-serif;
+}
+
+.availability-calendar__datepicker-day {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background: #fff;
+  min-height: 80px;
+  min-width: 30px;
+}
+
+.availability-calendar__datepicker__past-day { cursor: default; }
+
+.availability-calendar__arrows-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.availability-calendar__arrow {
+  background: #fff;
+  border: none;
+  font-size: 2rem;
+}

@@ -7,7 +7,6 @@
   data-enable-history-state="true"
   itemscope itemtype="http://schema.org/Product"
 >
-  {{ '../vendor/vendor.js' | json }}
   {%- assign current_variant = product.selected_or_first_available_variant -%}
   {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
 
@@ -50,7 +49,7 @@
           <!-- {% raw %} {{ product.metafields.duration }} {% endraw %} -->
         </span>
       </div>
-      {%- include 'see-dates' -%}
+      {%- include 'availability-calendar' -%}
     </div>
 
     <div class="product__display-grid__col2">
@@ -69,6 +68,7 @@
           thinking to further the overall value proposition. Organically grow the
           holistic world view of disruptive innovation via workplace diversity and
           empowerment.
+          {{ product | json }}
         </p>
       </div>
       <div class="product__display-grid__detailsbox">
