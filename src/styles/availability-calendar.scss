@@ -1,30 +1,78 @@
 /*================ AVAILABILITY CALENDAR STYLES ================*/
-.availability-calendar__datepicker-container {
-  display: flex;
-  justify-content: space-around;
-  font-size: .9rem;
+.availability-calendar__container {
+  // display: flex;
+  // justify-content: space-around;
+  // font-size: .9rem;
   font-family: Avenir, sans-serif;
+  padding: 0;
 }
 
-.availability-calendar__datepicker-day {
-  border: 1px solid black;
+.availability-calendar__calendar {
   display: flex;
-  flex-direction: column;
   justify-content: space-around;
-  background: #fff;
-  min-height: 80px;
-  min-width: 30px;
+  padding: 0 15px;
+  list-style-type: none;
+
+  li {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    position: relative;
+    min-height: 70px;
+    min-width: 40px;
+  }
+
+  li > span {
+    position: absolute;
+    top: -10px;
+  }
+
+  span, label {
+    font-size: 0.9rem;
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    min-height: 30px;
+    width: 100%;
+    z-index: 90;
+  }
+
+  input[type="radio"] {
+    opacity: 0;
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0
+  }
+
+  input[type="radio"]:checked + label {
+    border: none;
+    border-radius: 50%;
+    background: #4A90E2;
+    color: #fff;
+    height: 40px;
+    width: 40px;
+  }
+
+  input[type="radio"]:disabled + label {
+    color: #c2c2c2;
+  }
 }
 
-.availability-calendar__datepicker__past-day { cursor: default; }
-
-.availability-calendar__arrows-container {
+.availability-calendar__header {
   display: flex;
   justify-content: space-between;
-}
 
-.availability-calendar__arrow {
-  background: #fff;
-  border: none;
-  font-size: 2rem;
+  .availability-calendar__arrow {
+    background: #fff;
+    border: none;
+    font-size: 2rem;
+  }
 }
