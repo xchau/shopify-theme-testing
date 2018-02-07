@@ -3,12 +3,86 @@ $font-size: 0.9rem;
 $font-bold: 600;
 $li-height: 70px;
 $li-width: 40px;
+$dropdown-button-width: 140px;
+$dropdown-arrow-position: 40;
+$dropdown-border-color: rgba(200, 200, 200, 0.5);
+$dropdown-border-radius: 3px;
+$dropdown-opacity-ease: opacity 0.5s ease;
+$calendar-selected-radius: 35px;
+
+/*================ DROP-DOWN STYLES ================*/
+.availability-calendar__dropdown-button {
+  // border: 1px solid #000;
+  background: #fff;
+  border-radius: $dropdown-border-radius;
+  position: relative;
+  outline: none;
+  margin-bottom: 20px;
+  padding: 5px 10px;
+  width: $dropdown-button-width;
+
+  &:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -3px;
+    border-width: 5px 5px 0 5px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.8) transparent;
+  }
+}
+
+.availability-calendar__dropdown-content {
+  border: 1px solid $dropdown-border-color;
+  border-radius: $dropdown-border-radius;
+  opacity: 0;
+  transition: $dropdown-opacity-ease;
+  padding: 5px;
+  position: relative;
+  pointer-events: none;
+  min-width: $dropdown-button-width;
+
+  &:before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: 100%;
+    left: ($dropdown-arrow-position + 0px);
+    border-width: 0 8px 8px 8px;
+    border-style: solid;
+    border-color: $dropdown-border-color transparent;
+  }
+
+  &:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: 100%;
+    left: ($dropdown-arrow-position + 1) + 0px;
+    border-width: 0 7px 7px 7px;
+    border-style: solid;
+    border-color: #fff transparent;
+  }
+}
+
+.dropdown__active {
+  opacity: 1;
+  transition: $dropdown-opacity-ease;
+  pointer-events: all;
+}
 
 /*================ AVAILABILITY CALENDAR STYLES ================*/
-.availability-calendar__container {
+.availability-calendar__calendar-container {
   font-family: Avenir, sans-serif;
   font-size: 0.9rem;
-  padding: 0;
+  background: #f3f3f3;
+  border-radius: $dropdown-border-radius;
+  padding: 8px 0;
 }
 
 .availability-calendar__calendar {
@@ -63,8 +137,8 @@ $li-width: 40px;
     border-radius: 50%;
     background: #4A90E2;
     color: #fff;
-    height: 40px;
-    width: 40px;
+    height: $calendar-selected-radius;
+    width: $calendar-selected-radius;
   }
 
   input[type="radio"]:disabled + label {
@@ -75,13 +149,14 @@ $li-width: 40px;
 .availability-calendar__header {
   display: flex;
   justify-content: space-between;
+  padding: 0 10px;
 
   .availability-calendar__month-label {
     font-weight: 600;
   }
 
   .availability-calendar__arrow {
-    background: #fff;
+    background: transparent;
     border: none;
     font-size: 2rem;
   }
