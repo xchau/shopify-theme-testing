@@ -1,23 +1,62 @@
 /*=============== VARIABLES ================*/
+$theme-light-gray: #f3f3f3;
+$theme-dark-gray: #ccc;
+$theme-indigo: #505DBF;
 $font-size: 0.9rem;
 $font-bold: 600;
 $li-height: 70px;
 $li-width: 40px;
-$dropdown-button-width: 140px;
+$dropdown-button-width: 190px;
+$dropdown-button-height: 30px;
 $dropdown-arrow-position: 112px;
 $dropdown-border-color: rgba(200, 200, 200, 0.5);
 $dropdown-border-radius: 3px;
 $dropdown-opacity-ease: opacity 0.5s ease;
 $calendar-selected-radius: 35px;
+$quantity-btn-size: 20px;
 
 /*================ DROP-DOWN STYLES ================*/
+main {
+  display: flex;
+  position: relative;
+}
+
+.availability-calendar__mask {
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 30;
+}
+
+.availability-calendar__dropdown-group {
+  display: flex;
+  justify-content: space-between;
+  height: ($dropdown-button-height * 4);
+  position: relative;
+  z-index: 40;
+}
+
+#calendar-button {
+  position: absolute;
+  top: 0;
+}
+
+#quantity-button {
+  position: absolute;
+  top: ($dropdown-button-height * 2);
+}
+
 .availability-calendar__dropdown-button {
   background: #fff;
   border-radius: $dropdown-border-radius;
-  position: relative;
   outline: none;
+  text-align: left;
   margin-bottom: 20px;
   padding: 5px 10px;
+  height: $dropdown-button-height;
   width: $dropdown-button-width;
 
   &:after {
@@ -34,15 +73,25 @@ $calendar-selected-radius: 35px;
   }
 }
 
+#calendar-content {
+  top: ($dropdown-button-height + 10px);
+}
+
+#quantity-content {
+  top: (($dropdown-button-height * 3) + 10px);
+}
+
 .availability-calendar__dropdown-content {
+  background: #fff;
   border: 1px solid $dropdown-border-color;
   border-radius: $dropdown-border-radius;
-  opacity: 0;
   transition: $dropdown-opacity-ease;
-  padding: 5px;
-  position: relative;
-  pointer-events: none;
   min-width: $dropdown-button-width;
+  opacity: 0;
+  padding: 5px;
+  z-index: 50;
+  pointer-events: none;
+  position: absolute;
 
   &:before {
     content: "";
@@ -69,7 +118,9 @@ $calendar-selected-radius: 35px;
   }
 }
 
-.dropdown__active {
+.availability-calendar__calendar-active,
+.availability-calendar__quantity-active
+ {
   opacity: 1;
   transition: $dropdown-opacity-ease;
   pointer-events: all;
@@ -79,9 +130,10 @@ $calendar-selected-radius: 35px;
 .availability-calendar__calendar-container {
   font-family: Avenir, sans-serif;
   font-size: 0.9rem;
-  background: #f3f3f3;
+  background: $theme-light-gray;
   border-radius: $dropdown-border-radius;
   padding: 8px 0;
+  cursor: default;
 }
 
 .availability-calendar__calendar {
@@ -164,4 +216,62 @@ $calendar-selected-radius: 35px;
 .availability-calendar__footer {
   display: flex;
   justify-content: center;
+}
+
+/*================ TICKET QUANTITY STYLES ================*/
+.availability-calendar__quantity-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.availability-calendar__quantity-control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 25px;
+  min-width: 80px;
+}
+
+.availability-calendar__circle-btn {
+  height: $quantity-btn-size;
+  width: $quantity-btn-size;
+  color: #000;
+  border: 1px solid $theme-dark-gray;
+  border-radius: 50%;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  span {
+    position: absolute;
+    top: -1px;
+  }
+}
+
+.availability-calendar__minus {
+  span {
+    font-size: 1rem;
+  }
+
+  &:disabled {
+    border-color: $theme-light-gray;
+    color: $theme-light-gray;
+    cursor: default;
+  }
+}
+
+.availability-calendar__quantity-confirm {
+  border: none;
+  border-radius: $dropdown-border-radius;
+  background: $theme-indigo;
+  color: #fff;
+  padding: 8px 16px;
+}
+
+.availability-calendar__quantity-label {
+  cursor: default;
+  font-weight: 600;
 }
