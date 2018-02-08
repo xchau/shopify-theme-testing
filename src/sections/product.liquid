@@ -49,7 +49,10 @@
           <!-- {% raw %} {{ product.metafields.duration }} {% endraw %} -->
         </span>
       </div>
-      {%- include 'availability-calendar' -%}
+      <div class="product__dropdown-group">
+        {%- include 'availability-calendar' -%}
+        {%- include 'ticket-quantity' -%}
+      </div>
     </div>
 
     <div class="product__display-grid__col2">

@@ -21,17 +21,7 @@ main {
   position: relative;
 }
 
-.availability-calendar__mask {
-  height: 100%;
-  width: 100%;
-  background: transparent;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 30;
-}
-
-.availability-calendar__dropdown-group {
+.product__dropdown-group {
   display: flex;
   justify-content: space-between;
   height: ($dropdown-button-height * 4);
@@ -49,7 +39,17 @@ main {
   top: ($dropdown-button-height * 2);
 }
 
-.availability-calendar__dropdown-button {
+.dropdowns__mask {
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 30;
+}
+
+.dropdowns__dropdown-button {
   background: #fff;
   border-radius: $dropdown-border-radius;
   outline: none;
@@ -81,7 +81,7 @@ main {
   top: (($dropdown-button-height * 3) + 10px);
 }
 
-.availability-calendar__dropdown-content {
+.dropdowns__dropdown-content {
   background: #fff;
   border: 1px solid $dropdown-border-color;
   border-radius: $dropdown-border-radius;
@@ -119,7 +119,7 @@ main {
 }
 
 .availability-calendar__calendar-active,
-.availability-calendar__quantity-active
+.ticket-quantity__quantity-active
  {
   opacity: 1;
   transition: $dropdown-opacity-ease;
@@ -219,13 +219,13 @@ main {
 }
 
 /*================ TICKET QUANTITY STYLES ================*/
-.availability-calendar__quantity-container {
+.ticket-quantity__quantity-container {
   display: flex;
   justify-content: space-between;
   padding: 10px 20px;
 }
 
-.availability-calendar__quantity-control {
+.ticket-quantity__quantity-control {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -233,7 +233,7 @@ main {
   min-width: 80px;
 }
 
-.availability-calendar__circle-btn {
+.ticket-quantity__circle-btn {
   height: $quantity-btn-size;
   width: $quantity-btn-size;
   color: #000;
@@ -251,7 +251,7 @@ main {
   }
 }
 
-.availability-calendar__minus {
+.ticket-quantity__minus {
   span {
     font-size: 1rem;
   }
@@ -263,7 +263,8 @@ main {
   }
 }
 
-.availability-calendar__quantity-confirm {
+.ticket-quantity__quantity-confirm {
+  outline: none;
   border: none;
   border-radius: $dropdown-border-radius;
   background: $theme-indigo;
@@ -271,7 +272,7 @@ main {
   padding: 8px 16px;
 }
 
-.availability-calendar__quantity-label {
+.ticket-quantity__quantity-label {
   cursor: default;
   font-weight: 600;
 }
