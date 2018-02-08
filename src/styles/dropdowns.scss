@@ -210,6 +210,10 @@ main {
     background: transparent;
     border: none;
     font-size: 2rem;
+
+    &:disabled {
+      cursor: default;
+    }
   }
 }
 
