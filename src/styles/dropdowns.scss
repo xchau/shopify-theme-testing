@@ -2,20 +2,31 @@
 $theme-light-gray: #f3f3f3;
 $theme-dark-gray: #ccc;
 $theme-indigo: #505DBF;
+$theme-red: #C64862;
+$theme-blue: #4A90E2;
 $font-size: 0.9rem;
 $font-bold: 600;
 $li-height: 70px;
 $li-width: 40px;
+$default-border-radius: 3px;
 $dropdown-button-width: 190px;
 $dropdown-button-height: 30px;
 $dropdown-arrow-position: 112px;
 $dropdown-border-color: rgba(200, 200, 200, 0.5);
-$dropdown-border-radius: 3px;
 $dropdown-opacity-ease: opacity 0.5s ease;
 $calendar-selected-radius: 35px;
 $quantity-btn-size: 20px;
 
 /*================ DROP-DOWN STYLES ================*/
+@mixin theme-button($padTB, $padLR, $btnColor) {
+  outline: none;
+  border: none;
+  border-radius: $default-border-radius;
+  background: $btnColor;
+  color: #fff;
+  padding: $padTB $padLR;
+}
+
 main {
   display: flex;
   position: relative;
@@ -51,7 +62,7 @@ main {
 
 .dropdowns__dropdown-button {
   background: #fff;
-  border-radius: $dropdown-border-radius;
+  border-radius: $default-border-radius;
   outline: none;
   text-align: left;
   margin-bottom: 20px;
@@ -84,7 +95,7 @@ main {
 .dropdowns__dropdown-content {
   background: #fff;
   border: 1px solid $dropdown-border-color;
-  border-radius: $dropdown-border-radius;
+  border-radius: $default-border-radius;
   transition: $dropdown-opacity-ease;
   min-width: $dropdown-button-width;
   opacity: 0;
@@ -131,7 +142,7 @@ main {
   font-family: Avenir, sans-serif;
   font-size: 0.9rem;
   background: $theme-light-gray;
-  border-radius: $dropdown-border-radius;
+  border-radius: $default-border-radius;
   padding: 8px 0;
   cursor: default;
 }
@@ -186,7 +197,7 @@ main {
   input[type="radio"]:checked + label {
     border: none;
     border-radius: 50%;
-    background: #4A90E2;
+    background: $theme-blue;
     color: #fff;
     height: $calendar-selected-radius;
     width: $calendar-selected-radius;
@@ -221,6 +232,44 @@ main {
 .availability-calendar__footer {
   display: flex;
   justify-content: center;
+}
+
+.availability-calendar__timeslots-ul {
+  cursor: default;
+  list-style: none;
+  margin: 15px 0;
+  padding: 0;
+  font-size: $font-size;
+
+  li {
+    border-bottom: 1px solid $theme-dark-gray;
+    height: 60px;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &:hover {
+      border-radius: $default-border-radius;
+      background: $theme-light-gray;
+    }
+
+    .availability__calendar__time-sold-out {
+      color: #aaa;
+    }
+
+    .availability__calendar__spots-sold-out {
+      color: $theme-red;
+    }
+
+    .availability__calendar__select-button {
+      @include theme-button(8px, 20px, $theme-blue);
+    }
+  }
+
+  li:last-child {
+    border: none;
+  }
 }
 
 /*================ TICKET QUANTITY STYLES ================*/
@@ -269,12 +318,7 @@ main {
 }
 
 .ticket-quantity__quantity-confirm {
-  outline: none;
-  border: none;
-  border-radius: $dropdown-border-radius;
-  background: $theme-indigo;
-  color: #fff;
-  padding: 8px 16px;
+  @include theme-button(8px, 16px, $theme-indigo);
 }
 
 .ticket-quantity__quantity-label {
