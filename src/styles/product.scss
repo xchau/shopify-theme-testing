@@ -70,7 +70,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 
 .product__display-grid__col1 {
   .product__display-grid__divider {
-    margin: 10px 0 20px 0;
+    margin: 20px 0 25px 0;
     border-top: 1px solid $theme-mid-gray;
   }
 }
@@ -98,9 +98,9 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 $image-height: 400px;
 
 .product__carousel-container {
+  // border: 1px solid #ccc;
   overflow: hidden;
   position: relative;
-  border: 1px solid #ccc;
   height: $image-height;
 
   .product__carousel-controls {
@@ -136,9 +136,16 @@ $image-height: 400px;
 
   .product__carousel-prev,
   .product__carousel-next {
+    font-size: 1.5rem;
+    height: 35px;
+    width: 35px;
+    outline: none;
     border: none;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.9);
-  }
 
+    &:focus {
+      box-shadow: 0 0 3px 2px #4A90E2;
+    }
+  }
 }

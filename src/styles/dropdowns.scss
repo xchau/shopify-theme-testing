@@ -36,7 +36,6 @@ main {
   justify-content: space-between;
   height: ($dropdown-button-height * 4);
   position: relative;
-  margin-top: 10px;
   z-index: 100;
 }
 
@@ -218,6 +217,10 @@ main {
     color: #c2c2c2;
     cursor: default;
   }
+}
+
+.availability__calendar__warning {
+  color: $theme-red;
 }
 
 .availability__calendar__hidden {
