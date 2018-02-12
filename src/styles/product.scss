@@ -111,7 +111,7 @@ $image-height: 400px;
     padding: 0 15px;
     height: 100%;
     width: 100%;
-    z-index: 100;
+    z-index: 50;
   }
 
   .product__carousel-images {
@@ -136,7 +136,9 @@ $image-height: 400px;
 
   .product__carousel-prev,
   .product__carousel-next {
-    
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
   }
 
 }

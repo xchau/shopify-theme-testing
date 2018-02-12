@@ -37,7 +37,7 @@ main {
   height: ($dropdown-button-height * 4);
   position: relative;
   margin-top: 10px;
-  z-index: 40;
+  z-index: 100;
 }
 
 #calendar-button {
@@ -57,7 +57,7 @@ main {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 30;
+  z-index: 90;
 }
 
 .dropdowns__dropdown-button {
