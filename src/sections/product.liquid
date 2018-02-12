@@ -9,6 +9,7 @@
 >
   {%- assign current_variant = product.selected_or_first_available_variant -%}
   {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
+  {%- assign metadata = product.metafields.experiences -%}
 
   <meta itemprop="name" content="{{ product.title }}{% unless product.has_only_default_variant %} - {{ current_variant.title }}{% endunless %}">
   <meta itemprop="url" content="{{ shop.url }}{{ current_variant.url }}">
@@ -18,10 +19,10 @@
 
   <div class="product__title-container">
     <h1 class="product__title-container__title">
-      Conquer Mount Storm King
+      {{ product.title }}
     </h1>
     <span class="product__title-container__tagline">
-      The ultimate adventure in Olympic National Park.
+      {{ product.description }}
     </span>
   </div>
 
@@ -31,27 +32,30 @@
       <div class="product__display-grid__infobox">
         <h3 class="product__display-grid__header">Location:</h3>
         <span class="product__display-grid__text">
-          <a href="#">Olympic National Park, WA</a>
-          <!-- {% raw %} {{ product.metafields.location }} {% endraw %} -->
+          <a href="#">
+            {{ metadata.location }}
+          </a>
         </span>
       </div>
       <div class="product__display-grid__infobox">
-        <h3 class="product__display-grid__header">Duration:</h3>
+        <h3 class="product__display-grid__header">Cost:</h3>
         <span class="product__display-grid__text">
-          $200 per person
+          {{ product.variants[0].price | money }} per person
           <!-- {% raw %} {{ product.metafields.ticketCost }} {% endraw %} -->
         </span>
       </div>
       <div class="product__display-grid__infobox">
         <h3 class="product__display-grid__header">Duration:</h3>
         <span class="product__display-grid__text">
-          4 hours
+          {{ metadata.duration }} minutes
           <!-- {% raw %} {{ product.metafields.duration }} {% endraw %} -->
         </span>
       </div>
+      <div class="product__display-grid__divider"></div>
       <div class="product__dropdown-group">
         {%- include 'availability-calendar' -%}
         {%- include 'ticket-quantity' -%}
+        <button id="book-event-button">Book</button>
       </div>
     </div>
 
@@ -63,34 +67,25 @@
       {% endif %}
       <div class="product__display-grid__detailsbox">
         <h3 class="product__display-grid__header bottom-spacer-small">
-          What We'll Do
+          What is it
         </h3>
         <p class="product__display-grid__text">
-          Leverage agile frameworks to provide a robust synopsis for high level
-          overviews. Iterative approaches to corporate strategy foster collaborative
-          thinking to further the overall value proposition. Organically grow the
-          holistic world view of disruptive innovation via workplace diversity and
-          empowerment.
-          {{ product | json }}
+          {{ metadata.description }}
         </p>
       </div>
       <div class="product__display-grid__detailsbox">
         <h3 class="product__display-grid__header bottom-spacer-small">
-          Where We'll Be
+          Where we'll be
         </h3>
         <p class="product__display-grid__text">
-          Bring to the table win-win survival strategies to ensure proactive
-          domination. At the end of the day, going forward, a new normal that has
-          evolved from generation X is on the runway heading towards a streamlined
-          cloud solution. User generated content in real-time will have multiple
-          touchpoints for offshoring.
+          {{ metadata.locationDescription }}
         </p>
       </div>
       <div class="product__display-grid__detailsbox">
         <h3 class="product__display-grid__header bottom-spacer-small">
-          Notes
+          Additional details
         </h3>
-        <p class="product__display-grid__text">
+        <p class="product__display-grid__text" style="background: lightcoral;">
           Capitalize on low hanging fruit to identify a ballpark value added
           activity to beta test. Override the digital divide with additional
           clickthroughs from DevOps. Nanotechnology immersion along the
@@ -100,18 +95,13 @@
       </div>
       <div class="product__display-grid__detailsbox">
         <h3 class="product__display-grid__header bottom-spacer-small">
-          The Host
+          The host
         </h3>
         <div class="product__display-grid__hostbox">
-          <div class="product__display-grid__host-image">
-
+          {{ product.metafields.experiences.hostImage | img_tag: 'hostImage', 'product__display-grid__host-image' }}
+          <div class="product__display-grid__host-text product__display-grid__text">
+            {{ metadata.hostDescription }}
           </div>
-          <p class="product__display-grid__text">
-            Collaboratively administrate empowered markets via plug-and-play
-            networks. Dynamically procrastinate B2C users after installed base
-            benefits. Dramatically visualize customer directed convergence without
-            revolutionary ROI.
-          </p>
         </div>
       </div>
     </div>

@@ -20,7 +20,6 @@ $quantity-btn-size: 20px;
 /*================ DROP-DOWN STYLES ================*/
 @mixin theme-button($padTB, $padLR, $btnColor) {
   outline: none;
-  border: none;
   border-radius: $default-border-radius;
   background: $btnColor;
   color: #fff;
@@ -37,6 +36,7 @@ main {
   justify-content: space-between;
   height: ($dropdown-button-height * 4);
   position: relative;
+  margin-top: 10px;
   z-index: 40;
 }
 
@@ -65,7 +65,6 @@ main {
   border-radius: $default-border-radius;
   outline: none;
   text-align: left;
-  margin-bottom: 20px;
   padding: 5px 10px;
   height: $dropdown-button-height;
   width: $dropdown-button-width;
@@ -90,6 +89,18 @@ main {
 
 #quantity-content {
   top: (($dropdown-button-height * 3) + 10px);
+}
+
+#book-event-button {
+  color: #fff;
+  background: #505DBF;
+  border-radius: 4px;
+  height: 40px;
+  margin-bottom: 25px;
+  width: $dropdown-button-width;
+  top: ($dropdown-button-height * 4);
+  position: absolute;
+  outline: none;
 }
 
 .dropdowns__dropdown-content {
@@ -209,12 +220,18 @@ main {
   }
 }
 
+.availability__calendar__hidden {
+  display: none;
+}
+
 .availability-calendar__header {
   display: flex;
   justify-content: space-between;
   padding: 0 10px;
 
   .availability-calendar__month-label {
+    display: flex;
+    align-items: center;
     font-weight: 600;
   }
 
@@ -237,7 +254,6 @@ main {
 .availability-calendar__timeslots-ul {
   cursor: default;
   list-style: none;
-  margin: 15px 0;
   padding: 0;
   font-size: $font-size;
 
