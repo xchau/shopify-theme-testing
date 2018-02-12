@@ -115,6 +115,8 @@ $image-height: 400px;
   }
 
   .product__carousel-images {
+    display: flex;
+    justify-content: center;
     list-style: none;
     padding: 0;
 
@@ -130,6 +132,11 @@ $image-height: 400px;
     li.product__active-image {
       top: 0;
     }
+  }
+
+  .product__carousel-prev,
+  .product__carousel-next {
+    
   }
 
 }

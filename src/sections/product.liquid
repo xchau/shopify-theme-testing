@@ -68,7 +68,7 @@
           </div>
           <ol class="product__carousel-images">
             {%- for image in product.images -%}
-              <li class="product__active-image">
+              <li>
                 <img alt="{{ image.alt }}" src="{{ image.src | product_img_url: 'large' }}" />
               </li>
             {%- endfor -%}
