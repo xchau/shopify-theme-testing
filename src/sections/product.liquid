@@ -14,7 +14,7 @@
   <meta itemprop="name" content="{{ product.title }}{% unless product.has_only_default_variant %} - {{ current_variant.title }}{% endunless %}">
   <meta itemprop="url" content="{{ shop.url }}{{ current_variant.url }}">
   <meta itemprop="brand" content="{{ product.vendor }}">
-  <meta itemprop="image" content="{{ featured_image | img_url: '600x600' }}">
+  <meta itemprop="image" content="{{ featured_image }}">
   <meta itemprop="description" content="{{ product.description | strip_html | escape }}">
 
   <div class="product__title-container">
@@ -61,8 +61,18 @@
 
     <div class="product__display-grid__col2">
       {% if featured_image != blank %}
-        <div class="product__hero-image">
-          <img src="{{ featured_image | img_url: '480x480' }}" alt="{{ featured_image.alt | escape }}" data-product-featured-image>
+        <div class="product__carousel-container">
+          <div class="product__carousel-controls">
+            <button class="product__carousel-prev">&#65513;</button>
+            <button class="product__carousel-next">&#65515;</button>
+          </div>
+          <ol class="product__carousel-images">
+            {%- for image in product.images -%}
+              <li class="product__active-image">
+                <img alt="{{ image.alt }}" src="{{ image.src | product_img_url: 'large' }}" />
+              </li>
+            {%- endfor -%}
+          </ol>
         </div>
       {% endif %}
       <div class="product__display-grid__detailsbox">
@@ -98,7 +108,7 @@
           The host
         </h3>
         <div class="product__display-grid__hostbox">
-          {{ product.metafields.experiences.hostImage | img_tag: 'hostImage', 'product__display-grid__host-image' }}
+          {{ product.metafields.experiences.hostImage | img_tag: 'Host image', 'product__display-grid__host-image' }}
           <div class="product__display-grid__host-text product__display-grid__text">
             {{ metadata.hostDescription }}
           </div>
