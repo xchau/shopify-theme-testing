@@ -1,14 +1,9 @@
-/*================ MEDIA QUERY MIXINS ================*/
-$med-break: 900px;
-$large-break: 1000px;
+/*================ MEDIA QUERIES ================*/
 
-@mixin desktop-large {
-  @media (min-width: #{$large-break}) { @content; }
-}
 
 /*================ DEFAULT OVERRIDE ================*/
 .social-sharing {
-  border-top: 1px solid #E6E6E6;
+  border-top: 1px solid #dfdfdf;
   display: flex;
   justify-content: space-between;
   padding-top: 25px;
@@ -26,10 +21,9 @@ body {
 }
 
 .theme__main-container {
+  display: flex;
+  justify-content: center;
   flex: 1 0 auto;
-  padding: 0 15%;
-
-  @media (min-width: #{$large-break}) { padding: 0 25%; }
 }
 
 a {
