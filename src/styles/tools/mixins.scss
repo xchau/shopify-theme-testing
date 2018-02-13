@@ -1,3 +1,20 @@
+/*================ CUSTOM MIXINS ================*/
+@mixin bottom-spacer($space) {
+  margin-bottom: $space;
+}
+
+@mixin break-screen($width) {
+  @media (max-width: #{$width}) { @content; }
+}
+
+@mixin theme-button($padTB, $padLR, $btnColor) {
+  outline: none;
+  border-radius: $default-border-radius;
+  background: $btnColor;
+  color: #fff;
+  padding: $padTB $padLR;
+}
+
 /*================ Mixins ================*/
 @mixin clearfix() {
   &::after {

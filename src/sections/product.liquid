@@ -61,12 +61,10 @@
       {%- include 'social-sharing' -%}
     </div>
 
-    <div class="product__display-grid__col2"></div>
-
-    <div class="product__display-grid__col3">
+    <div class="product__display-grid__col2">
 
       {% if featured_image != blank %}
-        <div class="product__carousel-container">
+        <div id="grid-carousel" class="product__carousel-container">
           <div class="product__carousel-controls">
             <button class="product__carousel-prev">&#65513;</button>
             <button class="product__carousel-next">&#65515;</button>
@@ -74,36 +72,17 @@
           <ol class="product__carousel-images">
             {%- for image in product.images -%}
               <li>
-                <img
+                <!-- <img
                   alt="{{ image.alt }}"
                   src="{{ image.src | product_img_url: '650x' }}"
+                /> -->
+                <div
+                  class="product__image"
+                  style="background: url(https:{{ image.src | product_img_url: '650x' }});"
                 />
               </li>
             {%- endfor -%}
-            <!-- <li>
-              <img
-                alt="{{ image.alt }}"
-                src="https://tailandfur.com/wp-content/uploads/2017/09/List-of-15-Wild-Mountain-Animals-with-Pictures00004.jpg"
-              />
-            </li>
-            <li>
-              <img
-                alt="{{ image.alt }}"
-                src="https://i.pinimg.com/736x/41/e4/75/41e475ccd68f4dcd0d7c4e8c3da8e8d1--toms-chow-chow.jpg"
-              />
-            </li>
-            <li>
-              <img
-                alt="{{ image.alt }}"
-                src="https://www.zooknoxville.org/wp-content/uploads/2016/02/MG_3948-600x600.jpg"
-              />
-            </li>
-            <li>
-              <img
-                alt="{{ image.alt }}"
-                src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201501/goat_story-650_010915051234.jpg"
-              />
-            </li> -->
+
           </ol>
         </div>
       {% endif %}

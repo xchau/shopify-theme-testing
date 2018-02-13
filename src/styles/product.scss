@@ -1,23 +1,14 @@
-/*================ PRODUCT VARIABLES ================*/
-$theme-mid-gray: #dfdfdf;
-$header-size: 2.5rem;
-$subheader-size: 1rem;
-$body-text-size: .9rem;
-$host-img-size: 150px;
-$grid-width: 940px;
-$grid-col2-width: 540px;
-$grid-col-space: 40px;
-$grid-col1-width: $grid-width - ($grid-col2-width + $grid-col-space);
-
-/*================ * STYLES ================*/
+/*================ GENERAL STYLING ================*/
 h1, h2, h3, h4, h5, h6, p { margin: 0; }
-
-@mixin bottom-spacer($space) {
-  margin-bottom: $space;
-}
 
 .bottom-spacer-small {
   @include bottom-spacer(8px);
+}
+
+.product__section-container {
+  @include break-screen($mid-screens) {
+    padding: 0 10%;
+  }
 }
 
 .product__title-container {
@@ -42,16 +33,20 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 }
 
 /*================ GRID STYLES ================*/
-@mixin two-col-grid($col1, $col2, $col3) {
+@mixin two-col-grid($col1, $col2) {
   display: grid;
-  grid-template-columns: $col1 $col2 $col3;
-  -ms-grid-template-columns: $col1 $col2 $col3;
+  grid-template-columns: $col1 $col2;
+  -ms-grid-template-columns: $col1 $col2;
   max-width: $grid-width;
-  border: 1px solid lightblue;
 }
 
 .product__display-grid {
-  @include two-col-grid(26%, 10%, 64%);
+  @include two-col-grid($grid-col1-width, $grid-col2-width);
+  @include break-screen($mid-screens) {
+    display: flex;
+    flex-direction: column;
+  }
+
   line-height: 1.5;
 
   .product__display-grid__infobox {
@@ -60,12 +55,19 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
     margin-bottom: 10px;
     min-height: 30px;
     width: 100%;
+
+    @include break-screen($mid-screens) {
+      text-align: center;
+    }
   }
 
   .product__display-grid__detailsbox {
     border-bottom: 1px solid $theme-mid-gray;
     padding-top: 35px;
     padding-bottom: 25px;
+    @include break-screen($mid-screens) {
+      text-align: center;
+    }
 
     &:last-child {
       border: none;
@@ -80,11 +82,20 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
     border-top: 1px solid $theme-mid-gray;
   }
 }
-// .product__display-grid__col2 { background: lightblue; }
-// .product__display-grid__col3 { padding-left: 8%; }
+
+.product__display-grid__col2 {
+  padding-left: $grid-padding;
+  @include break-screen($mid-screens) { padding: 0; }
+}
+
+.product__display-grid__host-text {
+  padding-left: 40px;
+  @include break-screen($mid-screens) { text-align: center; }
+}
+
 .product__display-grid__header { font-size: $subheader-size; }
 .product__display-grid__text { font-size: $body-text-size; }
-.product__display-grid__host-text { padding-left: 40px; }
+
 
 .product__display-grid__hostbox {
   display: flex;
@@ -102,13 +113,14 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
 }
 
 /*================ CAROUSEL STYLES ================*/
-$image-height: 400px;
-
 .product__carousel-container {
-  // border: 1px solid #ccc;
   overflow: hidden;
   position: relative;
   height: $image-height;
+  width: 100%;
+
+  @include break-screen($small-screens) { height: ($image-height * 0.75); }
+  @include break-screen($tiny-screens) { height: ($image-height * 0.5625); }
 
   .product__carousel-controls {
     display: flex;
@@ -126,13 +138,21 @@ $image-height: 400px;
     justify-content: center;
     list-style: none;
     padding: 0;
+    height: 100%;
+    width: 100%;
 
     li {
+      display: flex;
       position: absolute;
       top: ($image-height + 10px);
+      height: 100%;
+      width: 100%;
 
-      img {
-        object-fit: cover;
+      div.product__image {
+        background-size: cover !important;
+        display: flex;
+        height: 100%;
+        width: 100%;
       }
     }
 
