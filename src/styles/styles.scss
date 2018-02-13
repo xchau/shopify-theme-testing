@@ -2,6 +2,7 @@
 .social-sharing {
   border-top: 1px solid #dfdfdf;
   padding-top: 25px;
+
   @include break-screen($mid-screens) {
     display: flex;
     justify-content: center;
@@ -10,12 +11,13 @@
 
   a {
     margin-right: 30px;
+    svg { color: #979797; }
   }
 }
 
 /*================ STICKY FOOTER ================*/
 html, body {
-  font-family: Avenir, sans-serif;
+  font-family: Avenir, Helvetica Neue, sans-serif;
   height: 100%;
 }
 
