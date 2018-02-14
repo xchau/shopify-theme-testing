@@ -1,5 +1,3 @@
-{{ 'product.scss.css' | asset_url | stylesheet_tag }}
-
 <form class="product__purchase-form-container">
   <select id="event-variant-select" class="product__purchase-form__select">
     {% for variant in product_data.variants %}

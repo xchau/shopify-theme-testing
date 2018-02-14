@@ -5,7 +5,7 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   @include bottom-spacer(8px);
 }
 
-.product__section-container { padding: 0 10%; }
+.theme__main-container { padding: 0 10%; }
 
 .product__title-container {
   display: flex;
@@ -15,6 +15,10 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   min-height: 20vh;
   margin-bottom: 20px;
   border-bottom: 1px solid $theme-mid-gray;
+
+  @include break-screen($small-screens) {
+    align-items: flex-start;
+  }
 
   .product__title-container__title {
     font-size: $header-size;
@@ -105,21 +109,11 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   overflow: hidden;
   position: relative;
   height: $image-height;
+  max-height: 400px;
   width: 100%;
 
-  @include break-screen($large-screens) {
-    height: ($image-height * .8);
-    transition: height 1s ease;
-  }
-
-  @include break-screen($small-screens) {
-    height: ($image-height * .75);
-    transition: height 1s ease;
-  }
-
-  @include break-screen($tiny-screens) {
-    height: ($image-height * .5625);
-    transition: height 1s ease;
+  @include break-screen($mid-screens) {
+    height: ($image-height + 15vw);
   }
 
   .product__carousel-controls {
@@ -138,21 +132,19 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
     justify-content: center;
     list-style: none;
     padding: 0;
-    height: 100%;
     width: 100%;
 
     li {
       display: flex;
       position: absolute;
-      top: ($image-height + 10px);
-      height: 100%;
+      top: ($image-height + 30vw);
       width: 100%;
 
       div.product__image {
-        background-size: cover !important;
-        display: flex;
-        height: 100%;
+        background-size: contain !important;
+        background-repeat: no-repeat !important;
         width: 100%;
+        padding-top: 100%; // 1:1 aspect ratio
       }
     }
 
@@ -164,12 +156,18 @@ h1, h2, h3, h4, h5, h6, p { margin: 0; }
   .product__carousel-prev,
   .product__carousel-next {
     font-size: 1.5rem;
-    height: 35px;
-    width: 35px;
+    height: $carousel-arrow-size;
+    width: $carousel-arrow-size;
     outline: none;
     border: 0;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.7);
+
+    @include break-screen($tiny-screens) {
+      font-size: 1rem;
+      height: ($carousel-arrow-size - 10px);
+      width: ($carousel-arrow-size - 10px);
+    }
 
     &:focus {
       box-shadow: 0 0 3px 2px $theme-blue;
