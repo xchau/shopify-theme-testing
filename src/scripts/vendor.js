@@ -8,13 +8,6 @@
  */
 // =require vendor/jquery-2.2.3.min.js
 
-/*!
- * jquery-ui.min.js
- */
-// =require vendor/jquery-ui.min.js
-
-// =require vendor/test.js
-
 // Attempts to preserve comments that likely contain licensing information,
 // even if the comment does not have directives such as `@license` or `/*!`.
 //
