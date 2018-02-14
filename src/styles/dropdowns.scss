@@ -10,10 +10,6 @@ main {
   height: ($dropdown-button-height * 6);
   position: relative;
   z-index: 100;
-
-  @include break-screen($mid-screens) {
-    justify-content: center;
-  }
 }
 
 #calendar-button {

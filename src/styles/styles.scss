@@ -4,8 +4,6 @@
   padding-top: 25px;
 
   @include break-screen($mid-screens) {
-    display: flex;
-    justify-content: center;
     margin-bottom: 25px;
   }
 
@@ -14,6 +12,8 @@
     svg { color: #979797; }
   }
 }
+
+
 
 /*================ STICKY FOOTER ================*/
 html, body {
