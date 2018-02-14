@@ -72,10 +72,6 @@
           <ol class="product__carousel-images">
             {%- for image in product.images -%}
               <li>
-                <!-- <img
-                  alt="{{ image.alt }}"
-                  src="{{ image.src | product_img_url: '650x' }}"
-                /> -->
                 <div
                   class="product__image"
                   style="background: url(https:{{ image.src | product_img_url: '650x' }});"

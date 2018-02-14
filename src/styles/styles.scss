@@ -1,6 +1,6 @@
 /*================ DEFAULT OVERRIDE ================*/
 .social-sharing {
-  border-top: 1px solid #dfdfdf;
+  border-top: 1px solid $theme-mid-gray;
   padding-top: 25px;
 
   @include break-screen($mid-screens) {
@@ -33,11 +33,11 @@ body {
 }
 
 a {
-  color: #505DBF;
+  color: $theme-indigo;
   text-decoration: none;
 
   &:active {
-    color: #505DBF;
+    color: $theme-indigo;
   }
 }
 
@@ -48,7 +48,7 @@ a {
 }
 
 .theme__product-container {
-  border: 1px dashed black;
+  border: 1px dashed #000;
   height: 250px;
   width: 100%;
   display: flex;
