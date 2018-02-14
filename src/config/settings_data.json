@@ -3,7 +3,7 @@
   "presets": {
     "Default": {
       "content_for_index": [
-        "product-list",
+        "product-list"
       ]
     }
   }
